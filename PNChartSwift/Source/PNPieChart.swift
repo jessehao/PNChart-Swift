@@ -38,6 +38,10 @@ class PNPieChart: PNGenericChart {
         return CGSize(width: 0, height: 1)
     }()
     var duration: TimeInterval = 1.0
+	
+	var fallingOffset:CGFloat = 0
+	var maxSliceWidth:CGFloat = 40
+	var isMaskHidden:Bool = false
     
     var hideValues: Bool = true
     var showOnlyValues: Bool = true
@@ -119,24 +123,33 @@ class PNPieChart: PNGenericChart {
 
     func recompute() {
         self.outerCircleRadius = self.bounds.size.width / 2
-        self.innerCircleRadius = self.bounds.size.width / 6
+        self.innerCircleRadius = (self.bounds.size.width / 2) - self.maxSliceWidth
     }
     
     func strokeChart() {
         self.loadDefault()
         self.recompute()
+		let offset:CGFloat = self.fallingOffset / 2
         for index in 0..<self.items.count {
             let currentItem = self.items[index]
             let startPercentage = self.startPercentageForItemAtIndex(index: index)
             let endPercentage = self.endPercentageForItemAtIndex(index: index)
-            let radius = self.innerCircleRadius + (self.outerCircleRadius - self.innerCircleRadius) / 2
-            let borderWidth = self.outerCircleRadius - self.innerCircleRadius
+            let radius = self.innerCircleRadius + (self.outerCircleRadius - self.innerCircleRadius) / 2 - (CGFloat(index) * offset)
+            let borderWidth = self.outerCircleRadius - self.innerCircleRadius - (CGFloat(index) * offset * 2)
             let currentPieLayer = self.newCircileLayerWithRadius(radius: radius, borderWidth: borderWidth, fillColor: UIColor.clear, borderColor: currentItem.color!, startPercentage: startPercentage, endPercentage: endPercentage)
+			if let shadow = currentItem.shadow {
+				currentPieLayer.shadowColor = shadow.color
+				currentPieLayer.shadowOffset = shadow.offset
+				currentPieLayer.shadowRadius = shadow.radius
+				currentPieLayer.shadowOpacity = shadow.opacity
+			}
             self.pieLayer.addSublayer(currentPieLayer)
         }
-        
-        self.maskChart()
-        
+		
+		if !self.isMaskHidden {
+			self.maskChart()
+		}
+		
         for index in 0..<self.items.count {
             guard let descriptionLabel = self.descriptionLabelForItemAtIndex(index: index) else {
                 print("Variable description is nil")

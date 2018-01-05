@@ -8,10 +8,12 @@
 
 import UIKit
 
+
 class PNPieChartDataItem: NSObject {
     var color: UIColor?
     var text: String?
     var value: CGFloat?
+	var shadow: PNPieChartDataItemShadow?
     
     init(dateColor color: UIColor, description text: String) {
         self.color = color

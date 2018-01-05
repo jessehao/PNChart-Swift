@@ -41,15 +41,25 @@ class DetailViewController: UIViewController {
 //    }
     
     private func setPieChart() -> PNPieChart {
+		let shadowOffset = CGSize(width: 0, height: 7)
         let item1 = PNPieChartDataItem(dateValue: 20, dateColor:  PNLightGreen, description: "Build")
+		item1.shadow = PNPieChartDataItemShadow(withOpacity: 0.28, offset: shadowOffset, color: UIColor.black.cgColor, radius: 7)
         let item2 = PNPieChartDataItem(dateValue: 20, dateColor: PNFreshGreen, description: "I/O")
+		item2.shadow = PNPieChartDataItemShadow(withOpacity: 0.28, offset: shadowOffset, color: UIColor.red.cgColor, radius: 7)
         let item3 = PNPieChartDataItem(dateValue: 45, dateColor: PNDeepGreen, description: "WWDC")
-        let frame = CGRect(x: 40, y: 155, width: 240, height: 240)
+		item3.shadow = PNPieChartDataItemShadow(withOpacity: 0.28, offset: shadowOffset, color: UIColor.green.cgColor, radius: 7)
+		
+        let frame = CGRect(x: 40, y: 155, width: 150, height: 150)
         let items: [PNPieChartDataItem] = [item1, item2, item3]
         let pieChart = PNPieChart(frame: frame, items: items)
         pieChart.descriptionTextColor = UIColor.white
         pieChart.descriptionTextFont = UIFont(name: "Avenir-Medium", size: 14)!
         pieChart.center = self.view.center
+		
+		// New Feature
+		pieChart.maxSliceWidth = 40
+		pieChart.fallingOffset = 2.5
+		
         return pieChart
     }
     
