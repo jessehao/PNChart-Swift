@@ -113,7 +113,8 @@ class PNBarChart: UIView {
             let grade = value / self.yValueMax
             var barXPosition: CGFloat!
             if self.barWidth != nil && self.barWidth > 0 {
-                barXPosition = CGFloat(index) * self.xLabelWidth + self.yChartLabelWidth + self.chartMargin + (self.xLabelWidth / 2) - (self.barWidth / 2)
+				let subExp = (self.xLabelWidth / 2) - (self.barWidth / 2)
+                barXPosition = CGFloat(index) * self.xLabelWidth + self.yChartLabelWidth + self.chartMargin + subExp
             } else {
                 barXPosition = CGFloat(index) * self.xLabelWidth + self.yChartLabelWidth + self.chartMargin + self.xLabelWidth * 0.25
                 if self.showLabel {

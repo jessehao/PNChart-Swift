@@ -27,6 +27,7 @@
 		3A9AD0861E17043200A1732F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A9AD0841E17043200A1732F /* LaunchScreen.storyboard */; };
 		3A9AD0911E17043200A1732F /* PNChartSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AD0901E17043200A1732F /* PNChartSwiftTests.swift */; };
 		3A9AD09C1E17043200A1732F /* PNChartSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AD09B1E17043200A1732F /* PNChartSwiftUITests.swift */; };
+		F69F04EA1FFF81D000E7ABAF /* PNPieChartDataItemShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69F04E91FFF81D000E7ABAF /* PNPieChartDataItemShadow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		3A9AD0971E17043200A1732F /* PNChartSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PNChartSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9AD09B1E17043200A1732F /* PNChartSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNChartSwiftUITests.swift; sourceTree = "<group>"; };
 		3A9AD09D1E17043200A1732F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F69F04E91FFF81D000E7ABAF /* PNPieChartDataItemShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PNPieChartDataItemShadow.swift; path = PNChartSwift/Source/PNPieChartDataItemShadow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			children = (
 				3A30C4F31F424C91002F7905 /* PNPieChart.swift */,
 				3A30C4F41F424C91002F7905 /* PNPieChartDataItem.swift */,
+				F69F04E91FFF81D000E7ABAF /* PNPieChartDataItemShadow.swift */,
 			);
 			name = Pie;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				3A30C5011F424D08002F7905 /* PNPieChartDataItem.swift in Sources */,
 				3A30C5031F424D13002F7905 /* PNLineChartData.swift in Sources */,
 				3A30C4FF1F424D03002F7905 /* PNValue.swift in Sources */,
+				F69F04EA1FFF81D000E7ABAF /* PNPieChartDataItemShadow.swift in Sources */,
 				3A30C50C1F425768002F7905 /* DetailViewController.swift in Sources */,
 				3A30C5081F4253CC002F7905 /* MainViewController.swift in Sources */,
 				3A30C4FB1F424CC0002F7905 /* PNGenericChart.swift in Sources */,
